@@ -35,6 +35,7 @@ public class Car {
         this.passengers_onbard.add(p);
         System.out.println(p.name + " successfully boarded " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seats remaining.");
     }
+
     
     public int getCapacity() {
 
