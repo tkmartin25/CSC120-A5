@@ -27,7 +27,7 @@ public class Car {
     
     public void addPassenger(Passenger p) {
         if (this.passengers_onboard.contains(p)) { // already on board
-            throw new RuntimeException(s.name + "is already onboard" + this.name);
+            throw new RuntimeException(s.name + " is already onboard " + this.name);
         }
         if (this.passengers_onboard.size() >= car_max_capacity) { // car is full
             throw new RuntimeException(this.name + " is already at capacity, " + p.name + " cannot board this car.");
@@ -36,7 +36,15 @@ public class Car {
         System.out.println(p.name + " successfully boarded " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seats remaining.");
     }
 
-    
+    public void removePassenger(Passenger p) {
+        if ((this.passengers_onboard.contains(p)) = FALSE) { // not on board
+            throw new RuntimeException(s.name + " is not onboard " + this.name);
+        }
+        this.passengers_onbard.remove(p);
+        System.out.println(p.name + " successfully exited " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seats remaining.");
+    }
+
+
     public int getCapacity() {
 
     }
