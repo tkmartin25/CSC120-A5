@@ -44,6 +44,17 @@ public class Car {
         System.out.println(p.name + " successfully exited " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seats remaining.");
     }
 
+    public void printManifest() {
+        if (this.passengers_onbaord.size() = 0) { // no passengers onboard the car
+            System.out.println("This car is EMPTY.");
+        }
+        else {
+            for (p in passengers_onboard) {
+                System.out.println(p.name);
+            }
+        }
+    }
+
 
     public int getCapacity() {
 
