@@ -26,11 +26,11 @@ public class Car {
     }
     
     public int getCapacity() {
-        System.out.println("The max capcity of this car is " + car_max_capacity);
+        return car_max_capacity;
     }
 
     public int seatsRemaining() {
-        System.out.println("The number of remaining seats in this car is " + this.car_max_capacity - this.passengers_onboard.size());
+        return this.car_max_capacity - this.passengers_onboard.size();
     }
 
     public void addPassenger(Passenger p) {
@@ -40,7 +40,7 @@ public class Car {
         if (this.passengers_onboard.size() >= car_max_capacity) { // car is full
             throw new RuntimeException(this.name + " is already at capacity, " + p.name + " cannot board this car.");
         }
-        this.passengers_onbard.add(p);
+        this.passengers_onboard.add(p);
         System.out.println(p.name + " successfully boarded " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seats remaining.");
     }
 

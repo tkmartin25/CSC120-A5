@@ -12,12 +12,39 @@
 import java.util.ArrayList;
 
 public class Train {
-    private final Enginge engine;
+    private final Engine engine;
     private ArrayList<Car> cars_attached;
+    double fuelCapacity;
+    int nCars;
+    FuelType fuelType;
+    int passengerCapacity;
 
-    public Train(FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity) {
 
+
+    public Train(Engine engine, FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity) {
+        this.engine = engine;
+        this.fuelType = fuelType;
+        this.fuelCapacity = fuelCapacity;
+        this.nCars = nCars;
+        this.passengerCapacity = passengerCapacity;     
     }
+
+    public Engine getEngine() {
+        return this.engine;
+    }
+
+    public Car getCar(int i) {
+        return this.cars_attached.get(i);
+    }
+
+    public int getMaxCapacity(){
+        for (int i = 0; i < cars_attached.size(); i++) {
+            passengerCapacity = passengerCapacity + cars_attached.get(i).car_max_capacity;
+        }
+        System.out.println("This train's max capacity is " + passengerCapacity);
+    }
+
+
 
 
 

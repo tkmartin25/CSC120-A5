@@ -1,4 +1,3 @@
-public class Engine {
 
 // a private `FuelType` attribute to indicate what type of fuel it uses
 //`double`s to store the current and maximum fuel levels (along with an approproate accessors for each)
@@ -7,16 +6,18 @@ public class Engine {
 // a method `public void go()` which will decrease the current fuel level 
 // and print some useful information (e.g. remaining fuel level) 
 // provided the fuel level is above 0 (otherwise it should throw a `RuntimeException` containing an informative message)
-    private FuelType;
+public class Engine {
+
+    private fuelType;
     String name;
     double current_fuel_level;
     double max_fuel_level;
 
-    public Engine(String name, double current_fuel_level, double max_fuel_level, String FuelType) {
+    public Engine(String name, double current_fuel_level, double max_fuel_level, FuelType fuelType) {
         this.name = name;
         this.current_fuel_level = current_fuel_level;
         this.max_fuel_level = max_fuel_level;
-        this.FuelType = FuelType;
+        this.fuelType = fuelType;
     }
 
     public void refuel() {

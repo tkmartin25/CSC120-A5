@@ -5,7 +5,6 @@
 // (_Hint: this method should be ready to `catch` the `RuntimeException` that will be thrown by `c.removePassenger(...)` in the event 
 // that the `Passenger` wasn't actually onboard._)
 
-
 public class Passenger {
     
     private String name;
@@ -19,6 +18,7 @@ public class Passenger {
         } catch (Exception e) {
             System.out.println("Car is already full." + this + " cannot board this car.");
     }
+    }
 
     public void getOffCar(Car c) {
         try {
@@ -28,3 +28,5 @@ public class Passenger {
         }
     }
 }
+
+
