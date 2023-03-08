@@ -25,6 +25,14 @@ public class Car {
         this.passengers_onboard = new ArrayList<Passenger>();
     }
     
+    public int getCapacity() {
+        System.out.println("The max capcity of this car is " + car_max_capacity);
+    }
+
+    public int seatsRemaining() {
+        System.out.println("The number of remaining seats in this car is " + this.car_max_capacity - this.passengers_onboard.size());
+    }
+
     public void addPassenger(Passenger p) {
         if (this.passengers_onboard.contains(p)) { // already on board
             throw new RuntimeException(s.name + " is already onboard " + this.name);
@@ -54,15 +62,4 @@ public class Car {
             }
         }
     }
-
-
-    public int getCapacity() {
-
-    }
-
-    public int seatsRemaining() {
-
-    }
-
-    public Car()
 }
