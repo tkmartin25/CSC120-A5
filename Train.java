@@ -19,8 +19,6 @@ public class Train {
     FuelType fuelType;
     int passengerCapacity;
 
-
-
     public Train(Engine engine, FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity) {
         this.engine = engine;
         this.fuelType = fuelType;
@@ -42,10 +40,7 @@ public class Train {
             passengerCapacity = passengerCapacity + cars_attached.get(i).car_max_capacity;
         }
         System.out.println("This train's max capacity is " + passengerCapacity);
+        return passengerCapacity;
     }
-
-
-
-
 
 }
