@@ -19,7 +19,7 @@ public class Car {
     private ArrayList<Passenger> passengers_onboard;
     int car_max_capacity;
 
-    public Car(String name, int car_max_capacity); {
+    public Car(String name, int car_max_capacity) {
         this.name = name;
         this.car_max_capacity = car_max_capacity;
         this.passengers_onboard = new ArrayList<Passenger>();
@@ -35,7 +35,7 @@ public class Car {
 
     public void addPassenger(Passenger p) {
         if (this.passengers_onboard.contains(p)) { // already on board
-            throw new RuntimeException(s.name + " is already onboard " + this.name);
+            throw new RuntimeException(p.name + " is already onboard " + this.name);
         }
         if (this.passengers_onboard.size() >= car_max_capacity) { // car is full
             throw new RuntimeException(this.name + " is already at capacity, " + p.name + " cannot board this car.");
@@ -46,19 +46,19 @@ public class Car {
 
     public void removePassenger(Passenger p) {
         if ((this.passengers_onboard.contains(p)) = FALSE) { // not on board
-            throw new RuntimeException(s.name + " is not onboard " + this.name);
+            throw new RuntimeException(p.name + " is not onboard " + this.name);
         }
-        this.passengers_onbard.remove(p);
+        this.passengers_onboard.remove(p);
         System.out.println(p.name + " successfully exited " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seats remaining.");
     }
 
     public void printManifest() {
-        if (this.passengers_onbaord.size() = 0) { // no passengers onboard the car
+        if (this.passengers_onboard.size() = 0) { // no passengers onboard the car
             System.out.println("This car is EMPTY.");
         }
         else {
-            for (p in passengers_onboard) {
-                System.out.println(p.name);
+            for (int i = 0; i < this.passengers_onboard.size(); i++) {
+                System.out.println(this.passengers_onboard.get(i).name);
             }
         }
     }

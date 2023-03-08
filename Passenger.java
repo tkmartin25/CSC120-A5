@@ -7,7 +7,7 @@
 
 public class Passenger {
     
-    private String name;
+    String name;
 
     public Passenger(String name) {
         this.name = name;
