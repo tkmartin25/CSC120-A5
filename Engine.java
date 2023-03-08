@@ -12,10 +12,11 @@ public class Engine {
     double current_fuel_level;
     double max_fuel_level;
 
-    public Engine(String name, double current_fuel_level, double max_fuel_level) {
+    public Engine(String name, double current_fuel_level, double max_fuel_level, String FuelType) {
         this.name = name;
         this.current_fuel_level = current_fuel_level;
         this.max_fuel_level = max_fuel_level;
+        this.FuelType = FuelType;
     }
 
     public void refuel() {
@@ -23,13 +24,11 @@ public class Engine {
     }
 
     public void go() {
-        try {
-            this.current_fuel_level = current_fuel_level - 30;
-            System.out.println("New fuel level:" + current_fuel_level);
-        } catch (Exception e) {
-            System.out.println("Not enough fuel to go anywhere.");
-        }
-
+        if (this.current_fuel_level < 30) { // if fuel level is less than 30
+            throw new RuntimeException(this.name + " does not have enough fuel to go anywhere.");
+        } 
+        this.current_fuel_level = current_fuel_level - 30;
+        System.out.println("New fuel level: " + current_fuel_level);
     }
 
 
