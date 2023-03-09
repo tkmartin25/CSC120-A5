@@ -18,6 +18,7 @@ public class Car {
     String name; 
     private ArrayList<Passenger> passengers_onboard;
     int car_max_capacity;
+    int seatsRemaining;
 
     public Car(String name, int car_max_capacity) {
         this.name = name;
@@ -30,7 +31,8 @@ public class Car {
     }
 
     public int seatsRemaining() {
-        return this.car_max_capacity - this.passengers_onboard.size();
+        seatsRemaining = this.car_max_capacity - this.passengers_onboard.size();
+        return seatsRemaining;
     }
 
     public void addPassenger(Passenger p) {

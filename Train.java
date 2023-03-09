@@ -18,6 +18,7 @@ public class Train {
     int nCars;
     FuelType fuelType;
     int passengerCapacity;
+    int seatsTaken;
 
     public Train(Engine engine, FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity) {
         this.engine = engine;
@@ -41,6 +42,14 @@ public class Train {
         }
         System.out.println("This train's max capacity is " + passengerCapacity);
         return passengerCapacity;
+    }
+
+    public int seatsRemaining(){
+        for (int i = 0; i < cars_attached.size(); i++) {
+            seatsTaken = seatsTaken + cars_attached.get(i).seatsRemaining;
+    }
+        return this.getMaxCapacity() - seatsTaken;
+
     }
 
 }
