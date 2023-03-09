@@ -22,6 +22,7 @@ public class Engine {
 
     public void refuel() {
         this.current_fuel_level = max_fuel_level;
+        System.out.println("Successfully refueled! New fuel level: " + current_fuel_level);
     }
 
     public void go() {

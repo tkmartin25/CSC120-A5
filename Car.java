@@ -27,11 +27,13 @@ public class Car {
     }
     
     public int getCapacity() {
+        System.out.println("This car's max capacity is " + this.car_max_capacity + ".");
         return car_max_capacity;
     }
 
     public int seatsRemaining() {
         seatsRemaining = this.car_max_capacity - this.passengers_onboard.size();
+        System.out.println("This car has " + this.seatsRemaining + " seat(s) left.");
         return seatsRemaining;
     }
 
@@ -43,7 +45,7 @@ public class Car {
             throw new RuntimeException(this.name + " is already at capacity, " + p.name + " cannot board this car.");
         }
         this.passengers_onboard.add(p);
-        System.out.println(p.name + " successfully boarded " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seats remaining.");
+        System.out.println(p.name + " successfully boarded " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seat(s) remaining.");
     }
 
     public void removePassenger(Passenger p) {
@@ -51,7 +53,7 @@ public class Car {
             throw new RuntimeException(p.name + " is not onboard " + this.name);
         }
         this.passengers_onboard.remove(p);
-        System.out.println(p.name + " successfully exited " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seats remaining.");
+        System.out.println(p.name + " successfully exited " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seat(s) remaining.");
     }
 
     public void printManifest() {

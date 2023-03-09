@@ -59,17 +59,32 @@ public class Train {
         }
     }
     public static void main(String[] args) {
-        Engine engine = new Engine("engine 1", 360, 400, FuelType.ELECTRIC);
-        Car car_1 = new Car("car 1", 2);
+        Engine engine = new Engine("engine 1", 24, 400, FuelType.ELECTRIC);
+        Car car_1 = new Car("car 1", 6);
         Passenger teddy = new Passenger("Teddy Martin");
         Passenger amelia = new Passenger("Amelia Babb");
+        Passenger egg = new Passenger("Anna-Lee Thompson");
         Train myTrain = new Train(engine, FuelType.ELECTRIC, 400, 8, 160);
-        teddy.boardCar(car_1);
-        amelia.boardCar(car_1);
-        car_1.printManifest();
-        amelia.getOffCar(car_1);
-        teddy.getOffCar(car_1);
-        car_1.printManifest();
+        teddy.boardCar(car_1); // success boarding
+        amelia.boardCar(car_1); // success boarding
+        car_1.printManifest(); // successfully prints names on car 1 
+        amelia.getOffCar(car_1); // success exiting
+        teddy.getOffCar(car_1); // success exiting
+        car_1.printManifest(); // successfully says car 1 is empty
+        engine.refuel(); // success refuel
+        engine.go(); // success lowering fuel level
+        car_1.getCapacity(); // successfully says car's max capacity
+        car_1.seatsRemaining(); // successfully says number of seats left
+        car_1.addPassenger(amelia); // successfully adds amelia to car 1
+        car_1.addPassenger(teddy); // successfully adds teddy to car 1
+        // car_1.addPassenger(egg); successfully says car 1 is at capacity
+        // car_1.addPassenger(amelia); successfully says Amelia is already onboard car 1
+        // car_1.seatsRemaining(); // successfully says number of seats left
+        // car_1.removePassenger(egg); successfully says Anna-Lee is no on car 1
+        car_1.removePassenger(amelia); // successfully exits car 1
+
+
+
 
     
     }
