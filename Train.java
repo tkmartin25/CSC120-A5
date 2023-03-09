@@ -58,6 +58,21 @@ public class Train {
             cars_attached.get(i).printManifest();
         }
     }
+    public static void main(String[] args) {
+        Engine engine = new Engine("engine 1", 360, 400, FuelType.ELECTRIC);
+        Car car_1 = new Car("car 1", 2);
+        Passenger teddy = new Passenger("Teddy Martin");
+        Passenger amelia = new Passenger("Amelia Babb");
+        Train myTrain = new Train(engine, FuelType.ELECTRIC, 400, 8, 160);
+        teddy.boardCar(car_1);
+        amelia.boardCar(car_1);
+        car_1.printManifest();
+        amelia.getOffCar(car_1);
+        teddy.getOffCar(car_1);
+        car_1.printManifest();
+
+    
+    }
 
 }
 

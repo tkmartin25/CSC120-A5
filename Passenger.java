@@ -16,7 +16,7 @@ public class Passenger {
         try {
             c.addPassenger(this);
         } catch (Exception e) {
-            System.out.println("Car is already full." + this + " cannot board this car.");
+            System.out.println("Car is already full. " + this.name + " cannot board this car.");
     }
     }
 
@@ -24,7 +24,7 @@ public class Passenger {
         try {
         c.removePassenger(this);
         } catch (Exception e) {
-            System.out.println(this + " isn't onboard this car.");
+            System.out.println(this.name + " isn't onboard this car.");
         }
     }
 }
