@@ -14,29 +14,34 @@
 // all `Passenger`s aboard the car (or "This car is EMPTY." if there is no one on board)
 import java.util.ArrayList;
 
+// car class 
 public class Car {
     String name; 
     private ArrayList<Passenger> passengers_onboard;
     int car_max_capacity;
     int seatsRemaining;
 
+    // car constructor
     public Car(String name, int car_max_capacity) {
         this.name = name;
         this.car_max_capacity = car_max_capacity;
         this.passengers_onboard = new ArrayList<Passenger>();
     }
     
+    // prints car's max capacity and also returns this number
     public int getCapacity() {
         System.out.println("This car's max capacity is " + this.car_max_capacity + ".");
         return car_max_capacity;
     }
 
+    // prints number of seats remaining in car and also returns this number
     public int seatsRemaining() {
         seatsRemaining = this.car_max_capacity - this.passengers_onboard.size();
         System.out.println("This car has " + this.seatsRemaining + " seat(s) left.");
         return seatsRemaining;
     }
 
+    // adds passenger to car
     public void addPassenger(Passenger p) {
         if (this.passengers_onboard.contains(p)) { // already on board
             throw new RuntimeException(p.name + " is already onboard " + this.name);
@@ -44,23 +49,25 @@ public class Car {
         if (this.passengers_onboard.size() >= car_max_capacity) { // car is full
             throw new RuntimeException(this.name + " is already at capacity, " + p.name + " cannot board this car.");
         }
-        this.passengers_onboard.add(p);
+        this.passengers_onboard.add(p); // successfully boarding
         System.out.println(p.name + " successfully boarded " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seat(s) remaining.");
     }
 
+    // removes passenger from car 
     public void removePassenger(Passenger p) {
         if ((!this.passengers_onboard.contains(p))) { // not on board
             throw new RuntimeException(p.name + " is not onboard " + this.name);
         }
-        this.passengers_onboard.remove(p);
+        this.passengers_onboard.remove(p); // successfully exits car
         System.out.println(p.name + " successfully exited " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seat(s) remaining.");
     }
 
+    // prints all passengers on car
     public void printManifest() {
         if (this.passengers_onboard.size() == 0) { // no passengers onboard the car
             System.out.println("This car is EMPTY.");
         }
-        else {
+        else { 
             for (int i = 0; i < this.passengers_onboard.size(); i++) {
                 System.out.println(this.passengers_onboard.get(i).name);
             }

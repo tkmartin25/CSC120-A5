@@ -11,6 +11,7 @@
 // and finally, its own `public void printManifest()` that prints a roster of all `Passenger`s onboard (_Hint: your `Car`s can help!_)
 import java.util.ArrayList;
 
+// train class 
 public class Train {
     private final Engine engine;
     private ArrayList<Car> cars_attached;
@@ -21,43 +22,62 @@ public class Train {
     int seatsTaken;
     String total_passsengers;
 
+    // train constructor
     public Train(Engine engine, FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity) {
         this.engine = engine;
         this.fuelType = fuelType;
         this.fuelCapacity = fuelCapacity;
         this.nCars = nCars;
-        this.passengerCapacity = passengerCapacity;     
+        this.passengerCapacity = passengerCapacity;
+        this.cars_attached = new ArrayList<Car>();
+        for (int i = 0; i < nCars; i++) {
+            // adds nCars with each car's capacity being total capacity / number of cars
+            cars_attached.add(new Car("car", passengerCapacity/nCars));
+        }
     }
 
+    // returns engine of train
     public Engine getEngine() {
         return this.engine;
     }
 
+    // returns car i
     public Car getCar(int i) {
-        return this.cars_attached.get(i);
+        return cars_attached.get(i);
     }
 
+    // prints out max capacity of train and also returns that number
     public int getMaxCapacity(){
+        passengerCapacity = 0;
         for (int i = 0; i < cars_attached.size(); i++) {
-            passengerCapacity = passengerCapacity + cars_attached.get(i).car_max_capacity;
+            passengerCapacity += cars_attached.get(i).car_max_capacity;
         }
-        System.out.println("This train's max capacity is " + passengerCapacity);
+        System.out.println("This train's max capacity is " + passengerCapacity + ".");
         return passengerCapacity;
     }
 
+    // returns seatsRemaining
     public int seatsRemaining(){
         for (int i = 0; i < cars_attached.size(); i++) {
             seatsTaken = seatsTaken + cars_attached.get(i).seatsRemaining;
         }
-        return this.getMaxCapacity() - seatsTaken;
+        return getMaxCapacity() - seatsTaken;
 
     }
 
+    // prints each car's list of people
     public void printManifest() {
         for (int i = 0; i < cars_attached.size(); i++) {
             cars_attached.get(i).printManifest();
         }
     }
+
+    // add a car to the train
+    public void addCar(Car c) {
+        cars_attached.add(c);
+    }
+
+    // TESTING OUT CODE! 
     public static void main(String[] args) {
         Engine engine = new Engine("engine 1", 24, 400, FuelType.ELECTRIC);
         Car car_1 = new Car("car 1", 6);
@@ -82,11 +102,12 @@ public class Train {
         // car_1.seatsRemaining(); // successfully says number of seats left
         // car_1.removePassenger(egg); successfully says Anna-Lee is no on car 1
         car_1.removePassenger(amelia); // successfully exits car 1
-
-
-
-
-    
+        myTrain.getMaxCapacity(); // successfully says max capacity
+        myTrain.addCar(car_1); // successfuly adds car to train
+        myTrain.getMaxCapacity(); // updated capacity
+        System.out.println(myTrain.seatsRemaining());
+        myTrain.printManifest();
+        System.out.println(myTrain.getCar(8));
     }
 
 }
