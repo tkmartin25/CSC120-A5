@@ -48,7 +48,7 @@ public class Train {
     public int seatsRemaining(){
         for (int i = 0; i < cars_attached.size(); i++) {
             seatsTaken = seatsTaken + cars_attached.get(i).seatsRemaining;
-    }
+        }
         return this.getMaxCapacity() - seatsTaken;
 
     }
@@ -60,4 +60,11 @@ public class Train {
     }
 
 }
+
+
+
+
+
+
+
 
