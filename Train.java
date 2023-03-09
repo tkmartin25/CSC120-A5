@@ -19,6 +19,7 @@ public class Train {
     FuelType fuelType;
     int passengerCapacity;
     int seatsTaken;
+    String total_passsengers;
 
     public Train(Engine engine, FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity) {
         this.engine = engine;
@@ -52,4 +53,11 @@ public class Train {
 
     }
 
+    public void printManifest() {
+        for (int i = 0; i < cars_attached.size(); i++) {
+            cars_attached.get(i).printManifest();
+        }
+    }
+
 }
+
