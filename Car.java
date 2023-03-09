@@ -45,7 +45,7 @@ public class Car {
     }
 
     public void removePassenger(Passenger p) {
-        if ((this.passengers_onboard.contains(p)) = FALSE) { // not on board
+        if ((!this.passengers_onboard.contains(p))) { // not on board
             throw new RuntimeException(p.name + " is not onboard " + this.name);
         }
         this.passengers_onboard.remove(p);
@@ -53,7 +53,7 @@ public class Car {
     }
 
     public void printManifest() {
-        if (this.passengers_onboard.size() = 0) { // no passengers onboard the car
+        if (this.passengers_onboard.size() == 0) { // no passengers onboard the car
             System.out.println("This car is EMPTY.");
         }
         else {

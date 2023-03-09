@@ -8,7 +8,7 @@
 // provided the fuel level is above 0 (otherwise it should throw a `RuntimeException` containing an informative message)
 public class Engine {
 
-    private fuelType;
+    FuelType fuelType;
     String name;
     double current_fuel_level;
     double max_fuel_level;
