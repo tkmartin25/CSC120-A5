@@ -6,7 +6,7 @@
 // and print some useful information (e.g. remaining fuel level) 
 // provided the fuel level is above 0 (otherwise it should throw a `RuntimeException` containing an informative message)
 
-// engine class
+/** engine class */
 public class Engine {
 
     FuelType fuelType;
@@ -14,7 +14,7 @@ public class Engine {
     double current_fuel_level;
     double max_fuel_level;
 
-    // engine constructor
+    /** engine constructor */
     public Engine(String name, double current_fuel_level, double max_fuel_level, FuelType fuelType) {
         this.name = name;
         this.current_fuel_level = current_fuel_level;
@@ -22,13 +22,13 @@ public class Engine {
         this.fuelType = fuelType;
     }
 
-    // sets fuel level to max fuel level 
+    /** sets engine's fuel level to engine's max fuel level */
     public void refuel() {
         this.current_fuel_level = max_fuel_level;
         System.out.println("Successfully refueled! New fuel level: " + current_fuel_level);
     }
 
-    // decreases fuel level by 30
+    /** decreases fuel level by 30 */
     public void go() {
         if (this.current_fuel_level < 30) { // if fuel level is less than 30, cannot go
             throw new RuntimeException(this.name + " does not have enough fuel to go anywhere.");

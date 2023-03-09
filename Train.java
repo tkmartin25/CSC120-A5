@@ -11,7 +11,7 @@
 // and finally, its own `public void printManifest()` that prints a roster of all `Passenger`s onboard (_Hint: your `Car`s can help!_)
 import java.util.ArrayList;
 
-// train class 
+/** creates a train composed of an engine and a number of cars */
 public class Train {
     private final Engine engine;
     private ArrayList<Car> cars_attached;
@@ -22,7 +22,7 @@ public class Train {
     int seatsTaken;
     String total_passsengers;
 
-    // train constructor
+    /** train constructor */
     public Train(Engine engine, FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity) {
         this.engine = engine;
         this.fuelType = fuelType;
@@ -36,17 +36,22 @@ public class Train {
         }
     }
 
-    // returns engine of train
+    /** returns engine of train */ 
     public Engine getEngine() {
         return this.engine;
     }
 
-    // returns car i
+    /** returns car i 
+     * @param i of car to be accessed from cars_attached
+     * @return car with index i
+     */
     public Car getCar(int i) {
         return cars_attached.get(i);
     }
 
-    // prints out max capacity of train and also returns that number
+    /** prints out max capacity of train
+     * @return max capacity of train
+    */
     public int getMaxCapacity(){
         passengerCapacity = 0;
         for (int i = 0; i < cars_attached.size(); i++) {
@@ -56,7 +61,9 @@ public class Train {
         return passengerCapacity;
     }
 
-    // returns seatsRemaining
+    /** returns total # of seats remaining in train
+     * @return seats that remain in the train unoccupied
+     */
     public int seatsRemaining(){
         for (int i = 0; i < cars_attached.size(); i++) {
             seatsTaken = seatsTaken + cars_attached.get(i).seatsRemaining;
@@ -65,19 +72,21 @@ public class Train {
 
     }
 
-    // prints each car's list of people
+    /** prints out each car's list of passengers */
     public void printManifest() {
         for (int i = 0; i < cars_attached.size(); i++) {
             cars_attached.get(i).printManifest();
         }
     }
 
-    // add a car to the train
+    /** adds an existiing car to train
+     * @param car to be added to train
+     */
     public void addCar(Car c) {
         cars_attached.add(c);
     }
 
-    // TESTING OUT CODE! 
+    /** main, testing out code */
     public static void main(String[] args) {
         Engine engine = new Engine("engine 1", 24, 400, FuelType.ELECTRIC);
         Car car_1 = new Car("car 1", 6);

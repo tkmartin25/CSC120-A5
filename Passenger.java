@@ -5,17 +5,19 @@
 // (_Hint: this method should be ready to `catch` the `RuntimeException` that will be thrown by `c.removePassenger(...)` in the event 
 // that the `Passenger` wasn't actually onboard._)
 
-// passenger class
+/** passenger class */
 public class Passenger {
     
     String name;
 
-    // passenger constructor
+    /** passenger constructor */
     public Passenger(String name) {
         this.name = name;
     }
 
-    // passenger boards car, uses function from car class
+    /** passenger boards car
+     * @param Car c to be boarded by passenger
+     */
     public void boardCar(Car c) {
         try {
             c.addPassenger(this);
@@ -24,7 +26,9 @@ public class Passenger {
     }
     }
 
-    // passenger gets off car, uses function from car class
+    /** passenger gets off car
+     * @param car to be left
+     */
     public void getOffCar(Car c) {
         try {
         c.removePassenger(this);

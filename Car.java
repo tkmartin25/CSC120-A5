@@ -14,34 +14,38 @@
 // all `Passenger`s aboard the car (or "This car is EMPTY." if there is no one on board)
 import java.util.ArrayList;
 
-// car class 
+/** creates car that stores passengers */
 public class Car {
     String name; 
     private ArrayList<Passenger> passengers_onboard;
     int car_max_capacity;
     int seatsRemaining;
 
-    // car constructor
+    /** car constructor */
     public Car(String name, int car_max_capacity) {
         this.name = name;
         this.car_max_capacity = car_max_capacity;
         this.passengers_onboard = new ArrayList<Passenger>();
     }
     
-    // prints car's max capacity and also returns this number
+    /** prints car's max capacity
+     * @return car max capacity*/ 
     public int getCapacity() {
         System.out.println("This car's max capacity is " + this.car_max_capacity + ".");
         return car_max_capacity;
     }
 
-    // prints number of seats remaining in car and also returns this number
+    /** prints number of seats remaining in car
+     * @returns number of empty seats */ 
     public int seatsRemaining() {
         seatsRemaining = this.car_max_capacity - this.passengers_onboard.size();
         System.out.println("This car has " + this.seatsRemaining + " seat(s) left.");
         return seatsRemaining;
     }
 
-    // adds passenger to car
+    /** adds passenger to car 
+     * @param passenger to be added
+     * */ 
     public void addPassenger(Passenger p) {
         if (this.passengers_onboard.contains(p)) { // already on board
             throw new RuntimeException(p.name + " is already onboard " + this.name);
@@ -53,7 +57,9 @@ public class Car {
         System.out.println(p.name + " successfully boarded " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seat(s) remaining.");
     }
 
-    // removes passenger from car 
+    /** removes passenger from car 
+     * @param passenger to be removed
+     * */ 
     public void removePassenger(Passenger p) {
         if ((!this.passengers_onboard.contains(p))) { // not on board
             throw new RuntimeException(p.name + " is not onboard " + this.name);
@@ -62,7 +68,7 @@ public class Car {
         System.out.println(p.name + " successfully exited " + this.name +"; " + (this.car_max_capacity - this.passengers_onboard.size()) + " seat(s) remaining.");
     }
 
-    // prints all passengers on car
+    /** prints all passengers on car */
     public void printManifest() {
         if (this.passengers_onboard.size() == 0) { // no passengers onboard the car
             System.out.println("This car is EMPTY.");
